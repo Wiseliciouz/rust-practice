@@ -1,10 +1,10 @@
 #[test]
 fn rhombus() {
     const HEIGHT: i32 = 10;
-    const WIDTH: i32 = 27;
+    const WIDTH: i32 = 20;
 
     let aspect_ratio = (WIDTH as f32 / 2.0) / (HEIGHT as f32 / 2.0);
-    let center = WIDTH as f32 / 2.0 - 1.0;
+    let center = (WIDTH as f32 - 1.0) / 2.0 ;
 
     let place_for_ratio = |y: i32, reverse: bool| {
         let ratio = if reverse { -aspect_ratio } else { aspect_ratio };
@@ -25,7 +25,6 @@ fn rhombus() {
             } else if up_right || down_right {
                 fill = false;
             }
-
             let border = up_left || up_right || down_left || down_right;
             let sym = if fill || border { "*" } else { " " };
 
@@ -34,7 +33,7 @@ fn rhombus() {
             }
             print!("{sym}");
         }
-        println!();
+        println!("");
     }
 }
 
